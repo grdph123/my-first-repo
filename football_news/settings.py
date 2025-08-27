@@ -30,7 +30,12 @@ SECRET_KEY = os.getenv("SECRET_KEY", "django-insecure-default-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "True") == "True"
 
-ALLOWED_HOSTS = ["localhost","127.0.0.1","garuga.dewangga-footballnews.pbp.cs.ui.ac.id"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "garuga-dewangga-footballnews.pbp.cs.ui.ac.id"
+]
+
 
 
 
