@@ -75,21 +75,6 @@ def show_json_by_id(request, news_id):
 
 @login_required(login_url='/login')
 def show_main(request):
-    news_list = News.objects.all()
-
-    context = {
-        'npm' : '2406437615',
-        'name': 'Garuga Dewangga Putra Handikto',
-        'class': 'PBP F',
-        'news_list': news_list,
-        'last_login': request.COOKIES.get('last_login', 'Never')
-    }
-
-    return render(request, "main.html", context)
-
-...
-@login_required(login_url='/login')
-def show_main(request):
     filter_type = request.GET.get("filter", "all")  # default 'all'
 
     if filter_type == "all":
@@ -98,9 +83,9 @@ def show_main(request):
         news_list = News.objects.filter(user=request.user)
 
     context = {
-    'npm': '240123456',
+    'npm': '2406437615',
     'name': request.user.username,
-    'class': 'PBP A',
+    'class': 'PBP F',
     'news_list': news_list,
     'last_login': request.COOKIES.get('last_login', 'Never')
 }
