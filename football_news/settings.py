@@ -34,11 +34,16 @@ DEBUG = os.getenv("DEBUG", "True") == "True"
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "garuga-dewangga-footballnews.pbp.cs.ui.ac.id"
+    "garuga-dewangga-footballnews.pbp.cs.ui.ac.id",
+    "10.0.2.2"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://garuga-dewangga-footballnews.pbp.cs.ui.ac.id"
+    "https://garuga-dewangga-footballnews.pbp.cs.ui.ac.id",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+    "http://localhost",  # Tambahkan untuk Flutter Web
+    "http://127.0.0.1",  # Tambahkan untuk Flutter Web
 ]
 
 
@@ -52,9 +57,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main', 
+    'authentication',
+    'corsheaders', 
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', 
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',  # supaya bisa serve static files di production
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -156,3 +164,10 @@ else:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# settings.py
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SAMESITE = 'None'
