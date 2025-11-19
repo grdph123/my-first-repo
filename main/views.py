@@ -204,8 +204,8 @@ def show_main(request):
         news_list = News.objects.filter(user=request.user)
     
     context = {
-        'npm' : '2406432406',
-        'name': 'Hafiz Nathan Vesaputra',
+        'npm' : '2406437615',
+        'name': 'Garuga Dewangga Putra Handikto',
         'class': 'PBP F',
         'news_list': news_list,
         'last_login': request.COOKIES.get('last_login', 'Never')
